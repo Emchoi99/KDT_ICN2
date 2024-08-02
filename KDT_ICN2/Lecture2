@@ -1,27 +1,36 @@
 #include <stdio.h>
+#include <iostream>
+using namespace std;
 
 struct Student
 {
     char name[20];
-    int age;
+    const int age = 5;
     float math, english;
+};
+
+union Choi
+{
+    int age;
+    int money;
 };
 
 int main()
 {
-    struct Student student1 = {"kim",23,34.4,12.2};
+    struct Student student[2];
+    union Choi k;
+    struct Student *p;
+    
+    p = &student[1];
     
     printf("수학점수를 입력하세요.\n");
-    scanf("%f",&student1.math);
+    scanf("%f",&p ->math);
     printf("영어점수를 입력하세요.\n");
-    scanf("%f",&student1.english);
+    scanf("%f",&student[1].english);
     
-    float avg = (student1.english + student1.math) / 2;
+    float avg = (student[1].english + student[1].math) / 2;
     
-    printf("학생이름 : %s\n",student1.name);
-    printf("나이 : %d\n",student1.age);
+    printf("학생이름 : %s\n",student[1].name);
+    printf("나이 : %d\n",student[1].age);
     printf("이 학생의 평균은 %f 입니다.",avg);
-    
-    
-    
 }
