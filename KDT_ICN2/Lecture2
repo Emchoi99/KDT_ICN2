@@ -1,25 +1,27 @@
 #include <stdio.h>
 
+struct Student
+{
+    char name[20];
+    int age;
+    float math, english;
+};
+
 int main()
 {
-    int array[9][9];
+    struct Student student1 = {"kim",23,34.4,12.2};
     
-    for(int i = 1; i <= 9; i++)
-    {
-        for(int j = 1; j <= 9; j++)
-        {
-            array[i-1][j-1] = i * j;
-        }
-    }
+    printf("수학점수를 입력하세요.\n");
+    scanf("%f",&student1.math);
+    printf("영어점수를 입력하세요.\n");
+    scanf("%f",&student1.english);
     
-    for(int k = 1; k <= 9; k++)
-    {
-        for(int l = 1; l <= 9; l++)
-        {
-            if(array[k-1][l-1])
-            printf("%dx%d= %2d  ",k,l,array[k-1][l-1]);
-        }
-        printf("\n");
-    }
-    return 0;
+    float avg = (student1.english + student1.math) / 2;
+    
+    printf("학생이름 : %s\n",student1.name);
+    printf("나이 : %d\n",student1.age);
+    printf("이 학생의 평균은 %f 입니다.",avg);
+    
+    
+    
 }
